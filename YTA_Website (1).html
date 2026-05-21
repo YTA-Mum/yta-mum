@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youth Thalassemic Alliance – Vashi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --org:#E87722;--org2:#F9A05A;--org-pale:#FEF5EB;
+  --blu:#1B6BB5;--blu2:#4A9EDE;--blu-pale:#EBF4FC;
+  --dark:#1A1A2E;--mid:#4A5568;--soft:#718096;
+  --light:#F8F9FB;--white:#FFFFFF;--border:#E8ECF0;
+  --green:#2D6A4F;--green-pale:#D8F3DC;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--dark);background:var(--white);-webkit-font-smoothing:antialiased}
+
+/* ── NAVBAR ── */
+nav{
+  position:fixed;top:0;width:100%;z-index:9999;
+  background:rgba(255,255,255,0.97);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 52px;height:72px;
+  backdrop-filter:blur(8px);
+}
+.nav-logo{display:flex;align-items:center;gap:14px;cursor:pointer;text-decoration:none}
+.nav-logo img{height:48px;width:auto;object-fit:contain}
+.nav-logo-text{display:flex;flex-direction:column}
+.nav-logo-text .org-name{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:var(--dark);line-height:1.2}
+.nav-logo-text .org-sub{font-size:10px;font-weight:500;color:var(--org);letter-spacing:1.2px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links button{
+  background:none;border:none;padding:8px 14px;border-radius:6px;
+  font-size:13.5px;font-weight:500;color:var(--mid);cursor:pointer;
+  font-family:'Inter',sans-serif;transition:all 0.18s;
+}
+.nav-links button:hover{background:var(--org-pale);color:var(--org)}
+.nav-links button.active{background:var(--org);color:#fff}
+.nav-cta{
+  background:var(--org);color:#fff;border:none;padding:9px 20px;
+  border-radius:7px;font-size:13.5px;font-weight:600;cursor:pointer;
+  font-family:'Inter',sans-serif;margin-left:12px;transition:all 0.18s;
+}
+.nav-cta:hover{background:var(--org2);transform:translateY(-1px)}
+
+/* ── PAGES ── */
+.page{display:none;padding-top:72px;min-height:100vh}
+.page.active{display:block}
+
+/* ── SHARED ── */
+.section-eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--org);margin-bottom:10px
+}
+.section-h{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:14px}
+.section-p{font-size:16px;color:var(--mid);line-height:1.75;max-width:580px}
+.btn-org{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--org);color:#fff;border:none;padding:13px 26px;
+  border-radius:8px;font-size:14.5px;font-weight:600;cursor:pointer;
+  font-family:'Inter',sans-serif;transition:all 0.2s;text-decoration:none
+}
+.btn-org:hover{background:var(--org2);transform:translateY(-2px)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.5);
+  padding:13px 26px;border-radius:8px;font-size:14.5px;font-weight:500;
+  cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;text-decoration:none
+}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,0.12)}
+.page-hero{
+  padding:90px 80px;color:#fff;position:relative;overflow:hidden
+}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;line-height:1.1;margin-bottom:16px}
+.page-hero p{font-size:18px;opacity:0.88;max-width:620px;line-height:1.7}
+.inner{padding:80px}
+.inner-sm{padding:64px 80px}
+
+/* ── FORM SHARED ── */
+.form-wrap{background:#fff;border-radius:16px;padding:44px;border:1px solid var(--border)}
+.form-wrap h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--dark);margin-bottom:6px}
+.form-wrap .form-note{font-size:13px;color:var(--soft);margin-bottom:28px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-size:13px;font-weight:500;color:var(--dark);margin-bottom:6px}
+.fg input,.fg select,.fg textarea{
+  width:100%;padding:11px 14px;border:1.5px solid var(--border);
+  border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;
+  color:var(--dark);background:#fff;transition:border-color 0.2s;outline:none
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--org)}
+.fg textarea{resize:vertical;min-height:90px}
+.req{color:var(--org)}
+.submit-btn{
+  width:100%;background:var(--org);color:#fff;border:none;padding:14px;
+  border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;
+  font-family:'Inter',sans-serif;transition:background 0.2s;margin-top:8px
+}
+.submit-btn:hover{background:var(--org2)}
+.success-box{
+  display:none;background:#D8F3DC;border:1.5px solid #2D6A4F;border-radius:10px;
+  padding:18px 20px;text-align:center;color:#1B4332;font-weight:500;margin-top:18px;font-size:14px
+}
+
+/* ── HOME PAGE ── */
+.hero{
+  min-height:92vh;display:flex;align-items:center;
+  padding:80px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#0D1B2A 0%,#1A3A5C 50%,#1B6BB5 80%,#E87722 130%);
+}
+.hero-dots{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,0.06) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+.hero-glow{
+  position:absolute;right:-10%;top:10%;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,119,34,0.18) 0%,transparent 70%);
+}
+.hero-content{position:relative;z-index:1;max-width:680px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.12);color:#fff;
+  font-size:11.5px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+  padding:7px 18px;border-radius:30px;margin-bottom:28px;
+  border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(4px)
+}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--org2);display:inline-block}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;font-size:62px;font-weight:700;
+  color:#fff;line-height:1.05;margin-bottom:22px
+}
+.hero h1 em{color:var(--org2);font-style:normal}
+.hero p{font-size:18px;color:rgba(255,255,255,0.82);line-height:1.75;margin-bottom:38px;max-width:560px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+
+.fff-belt{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--border);
+}
+.fff-item{
+  padding:48px 44px;display:flex;align-items:flex-start;gap:20px;
+  border-right:1px solid var(--border);
+  transition:background 0.2s;
+}
+.fff-item:last-child{border-right:none}
+.fff-item:hover{background:var(--light)}
+.fff-num{
+  font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;
+  line-height:1;flex-shrink:0;
+}
+.fff-item:nth-child(1) .fff-num{color:var(--org)}
+.fff-item:nth-child(2) .fff-num{color:var(--blu)}
+.fff-item:nth-child(3) .fff-num{color:var(--green)}
+.fff-body h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--dark);margin-bottom:8px}
+.fff-body p{font-size:14px;color:var(--mid);line-height:1.65}
+
+.impact-band{
+  background:var(--dark);padding:52px 80px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+}
+.impact-cell{
+  text-align:center;padding:20px;
+  border-right:1px solid rgba(255,255,255,0.08)
+}
+.impact-cell:last-child{border-right:none}
+.impact-num{
+  font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;
+  color:var(--org2);line-height:1;margin-bottom:6px
+}
+.impact-lbl{font-size:13px;color:rgba(255,255,255,0.55);letter-spacing:0.3px}
+
+.initiatives{padding:88px 80px;background:var(--light)}
+.init-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.init-card{
+  background:#fff;border-radius:14px;padding:30px;
+  border:1px solid var(--border);transition:all 0.2s;
+}
+.init-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.07)}
+.init-icon{
+  width:52px;height:52px;border-radius:12px;display:flex;
+  align-items:center;justify-content:center;font-size:24px;margin-bottom:18px
+}
+.init-card h4{font-size:16px;font-weight:600;color:var(--dark);margin-bottom:8px}
+.init-card p{font-size:14px;color:var(--mid);line-height:1.65}
+
+.cta-band{
+  background:linear-gradient(135deg,var(--org) 0%,#B85C10 100%);
+  padding:72px 80px;display:flex;align-items:center;justify-content:space-between;gap:40px
+}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:#fff;max-width:480px;line-height:1.2}
+.cta-band p{color:rgba(255,255,255,0.85);font-size:16px;margin-top:10px;max-width:460px}
+.btn-white{
+  background:#fff;color:var(--org);border:none;padding:14px 30px;
+  border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;
+  font-family:'Inter',sans-serif;transition:all 0.2s;white-space:nowrap;
+  flex-shrink:0
+}
+.btn-white:hover{background:var(--org-pale);transform:translateY(-2px)}
+
+/* ── ABOUT PAGE ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.about-card{
+  background:var(--org);border-radius:18px;padding:40px;color:#fff;margin-bottom:24px
+}
+.about-card .fff-big{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;margin-bottom:8px}
+.about-card .fff-tag{font-size:22px;font-weight:600;margin-bottom:22px;opacity:0.92}
+.about-card p{font-size:14px;opacity:0.9;line-height:1.75}
+.about-mem-card{
+  background:var(--blu-pale);border-radius:18px;padding:28px;
+}
+.about-mem-card h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--blu);margin-bottom:10px}
+.about-mem-card p{font-size:14px;color:var(--mid);line-height:1.7}
+.motto-list{list-style:none;margin-top:16px}
+.motto-list li{
+  padding:12px 0;border-bottom:1px solid var(--border);
+  font-size:14px;color:var(--mid);line-height:1.65;
+  display:flex;gap:14px;align-items:flex-start
+}
+.motto-list li::before{content:'✦';color:var(--org);flex-shrink:0;margin-top:2px;font-size:11px}
+.blockquote{
+  background:var(--org-pale);border-left:4px solid var(--org);
+  padding:22px 26px;border-radius:0 10px 10px 0;
+  font-style:italic;font-size:16px;color:var(--dark);line-height:1.75;
+  margin:28px 0
+}
+.trustees-section{background:var(--light);padding:88px 80px}
+.trustees-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+.trustee-card{
+  background:#fff;border-radius:16px;padding:36px;text-align:center;
+  border:1px solid var(--border);transition:all 0.2s
+}
+.trustee-card:hover{box-shadow:0 10px 36px rgba(0,0,0,0.08)}
+.t-avatar{
+  width:80px;height:80px;border-radius:50%;margin:0 auto 18px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;font-weight:700;color:#fff;letter-spacing:1px
+}
+.trustee-card h4{font-size:17px;font-weight:600;color:var(--dark);margin-bottom:4px}
+.trustee-card .t-role{font-size:12px;color:var(--org);font-weight:600;margin-bottom:14px;letter-spacing:0.3px}
+.trustee-card p{font-size:13.5px;color:var(--mid);line-height:1.65}
+
+/* ── PROJECTS PAGE ── */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.proj-card{
+  border-radius:16px;overflow:hidden;border:1px solid var(--border);
+  transition:all 0.2s;background:#fff
+}
+.proj-card:hover{transform:translateY(-4px);box-shadow:0 14px 44px rgba(0,0,0,0.08)}
+.proj-stripe{height:5px}
+.proj-body{padding:30px}
+.proj-emoji{font-size:36px;margin-bottom:16px;display:block}
+.proj-body h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--dark);margin-bottom:10px}
+.proj-body p{font-size:14px;color:var(--mid);line-height:1.68}
+.proj-foot{
+  padding:14px 30px;border-top:1px solid var(--border);
+  font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase
+}
+.vision-band{background:var(--dark);padding:88px 80px}
+.vision-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+.vision-item{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;padding:22px 24px;
+  font-size:14px;color:rgba(255,255,255,0.82);line-height:1.7;
+  display:flex;gap:16px
+}
+.v-n{
+  font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;
+  color:var(--org2);flex-shrink:0;line-height:1
+}
+
+/* ── TESTIMONIALS PAGE ── */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.test-card{
+  background:#fff;border-radius:16px;padding:32px;
+  border:1px solid var(--border);position:relative;transition:all 0.2s
+}
+.test-card:hover{box-shadow:0 10px 36px rgba(0,0,0,0.08)}
+.test-q{
+  font-family:'Cormorant Garamond',serif;font-size:68px;font-weight:700;
+  color:var(--org-pale);position:absolute;top:12px;left:22px;line-height:1
+}
+.stars{color:var(--org);font-size:13px;margin-bottom:10px}
+.test-text{font-size:14px;color:var(--mid);line-height:1.78;padding-top:38px;margin-bottom:22px}
+.test-author{display:flex;align-items:center;gap:12px;border-top:1px solid var(--border);padding-top:16px}
+.t-ava{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.t-ava-name{font-size:14px;font-weight:600;color:var(--dark)}
+.t-ava-role{font-size:12px;color:var(--soft)}
+.impact-row{padding:80px;background:var(--light)}
+.impact-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.imp-card{
+  text-align:center;padding:36px 20px;border-radius:14px;background:#fff;
+  border:1px solid var(--border);
+}
+.imp-big{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700}
+.imp-lbl{font-size:13px;color:var(--soft);margin-top:8px}
+
+/* ── MEMBERSHIP PAGE ── */
+.mem-layout{
+  padding:80px;background:var(--light);
+  display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px
+}
+.fee-badge{
+  background:var(--org);border-radius:14px;padding:22px 24px;
+  display:flex;align-items:center;gap:18px;margin-bottom:22px
+}
+.fee-badge .fee-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:#fff;flex-shrink:0}
+.fee-badge .fee-txt{font-size:14px;color:rgba(255,255,255,0.92);line-height:1.55}
+.benefit-list{list-style:none}
+.benefit-list li{
+  padding:10px 0;border-bottom:1px solid var(--border);
+  font-size:14px;color:var(--mid);display:flex;gap:12px;align-items:flex-start
+}
+.benefit-list li::before{content:'✓';color:var(--blu);font-weight:700;flex-shrink:0;margin-top:2px}
+.mem-types{margin-top:32px}
+.mem-type{
+  background:#fff;border-radius:10px;padding:18px 20px;
+  margin-bottom:12px;border:1px solid var(--border)
+}
+.mem-type-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.mem-type-head h4{font-size:14px;font-weight:600;color:var(--dark)}
+.mem-type-head .fee{font-size:13px;color:var(--org);font-weight:600}
+.mem-type p{font-size:13px;color:var(--soft)}
+.info-note{
+  background:var(--blu-pale);border-radius:10px;padding:18px 20px;margin-top:20px;
+  font-size:13px;color:var(--blu);font-weight:500;line-height:1.55
+}
+
+/* ── VOLUNTEER PAGE ── */
+.vol-layout{
+  padding:80px;background:var(--light);
+  display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px
+}
+.vol-free-badge{
+  background:var(--green);border-radius:12px;padding:16px 20px;
+  margin-bottom:22px;font-size:14px;color:#fff;font-weight:500;line-height:1.5
+}
+.vol-role-card{
+  background:#fff;border-radius:10px;padding:18px 20px;
+  margin-bottom:12px;border:1px solid var(--border)
+}
+.vol-role-card h4{font-size:14px;font-weight:600;color:var(--dark);margin-bottom:4px}
+.vol-role-card p{font-size:13px;color:var(--soft);line-height:1.6}
+
+/* ── CONTACT PAGE ── */
+.contact-layout{padding:80px;display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.contact-form{background:#fff;border-radius:16px;padding:40px;border:1px solid var(--border)}
+.contact-form h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--dark);margin-bottom:24px}
+.contact-info h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--dark);margin-bottom:32px}
+.info-block{margin-bottom:28px}
+.info-lbl{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--org);margin-bottom:7px}
+.info-block p{font-size:15px;color:var(--mid);line-height:1.7}
+.emergency-block{
+  background:var(--org-pale);border-left:4px solid var(--org);
+  border-radius:0 10px 10px 0;padding:20px 22px;margin-bottom:24px
+}
+.emergency-block .e-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--org);margin-bottom:8px}
+.emergency-block p{font-size:15px;color:var(--dark);font-weight:600;line-height:1.65}
+.map-box{
+  background:var(--light);border-radius:14px;height:190px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--border);flex-direction:column;gap:10px;
+  color:var(--soft);font-size:14px
+}
+.map-box .map-icon{font-size:42px}
+
+/* ── FOOTER ── */
+footer{background:#0D1B2A;color:#fff;padding:56px 80px 28px}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:52px;margin-bottom:48px}
+.footer-brand p{font-size:14px;color:rgba(255,255,255,0.5);margin-top:12px;line-height:1.75}
+.footer-links h5{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:18px}
+.footer-links button{
+  display:block;background:none;border:none;padding:0;
+  font-size:14px;color:rgba(255,255,255,0.65);cursor:pointer;
+  font-family:'Inter',sans-serif;margin-bottom:12px;text-align:left;transition:color 0.2s
+}
+.footer-links button:hover{color:var(--org2)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,0.35)}
+.footer-bottom .ft-accent{color:var(--org2)}
+.footer-logo{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.footer-logo img{height:44px;filter:brightness(0) invert(1);opacity:0.85}
+.footer-logo span{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:#fff}
+</style>
+</head>
+<body>
+<script>const LOGO_SRC='data:image/jpeg;base64,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';</script>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="#" onclick="showPage('home');return false">
+    <img id="nav-logo-img" alt="YTA Logo">
+    <div class="nav-logo-text">
+      <span class="org-name">Youth Thalassemic Alliance</span>
+      <span class="org-sub">Vashi · Est. 2011</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <button id="nb-home" class="active" onclick="showPage('home')">Home</button>
+    <button id="nb-about" onclick="showPage('about')">About Us</button>
+    <button id="nb-projects" onclick="showPage('projects')">Projects</button>
+    <button id="nb-testimonials" onclick="showPage('testimonials')">Testimonials</button>
+    <button id="nb-membership" onclick="showPage('membership')">Membership</button>
+    <button id="nb-volunteer" onclick="showPage('volunteer')">Volunteer</button>
+    <button id="nb-contact" onclick="showPage('contact')">Contact</button>
+    <button class="nav-cta" onclick="showPage('membership')">Join Now →</button>
+  </div>
+</nav>
+
+<!-- ═══════════════ PAGE: HOME ═══════════════ -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-dots"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><span></span>Est. February 2011 · Vashi, Navi Mumbai</div>
+      <h1>Face. Fight.<br><em>Finish</em> Thalassemia.</h1>
+      <p>In loving memory of Payal Wadhawa — we stand together to support thalassemic patients, spread awareness, and work towards a thalassemia-free world.</p>
+      <div class="hero-btns">
+        <button class="btn-org" onclick="showPage('membership')">Become a Member →</button>
+        <button class="btn-ghost" onclick="showPage('about')">Learn About YTA</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fff-belt">
+    <div class="fff-item">
+      <div class="fff-num">F</div>
+      <div class="fff-body">
+        <h3>Face</h3>
+        <p>Face the disorder with courage and confidence. Knowledge is the first step toward overcoming any challenge.</p>
+      </div>
+    </div>
+    <div class="fff-item">
+      <div class="fff-num">F</div>
+      <div class="fff-body">
+        <h3>Fight</h3>
+        <p>Fight fearlessly. Every patient and family member is a warrior — we stand with you through every battle.</p>
+      </div>
+    </div>
+    <div class="fff-item">
+      <div class="fff-num">F</div>
+      <div class="fff-body">
+        <h3>Finish</h3>
+        <p>Finish thalassemia — "No More Thalassemic Birth." Prevention through screening, counseling, and awareness.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="impact-band">
+    <div class="impact-cell">
+      <div class="impact-num">13+</div>
+      <div class="impact-lbl">Years of Service</div>
+    </div>
+    <div class="impact-cell">
+      <div class="impact-num">10,000+</div>
+      <div class="impact-lbl">Patients Supported</div>
+    </div>
+    <div class="impact-cell">
+      <div class="impact-num">5,000+</div>
+      <div class="impact-lbl">Blood Donors Mobilized</div>
+    </div>
+    <div class="impact-cell">
+      <div class="impact-num">2011</div>
+      <div class="impact-lbl">Year Founded</div>
+    </div>
+  </div>
+
+  <div class="initiatives">
+    <div class="section-eyebrow">What We Do</div>
+    <div class="section-h">Our Core Initiatives</div>
+    <p class="section-p">From medical assistance to social empowerment — Y.T.A is committed to holistic support for every thalassemic patient across India.</p>
+    <div class="init-grid">
+      <div class="init-card">
+        <div class="init-icon" style="background:var(--org-pale)">🏥</div>
+        <h4>Medical Assistance</h4>
+        <p>Helping patients secure hospitalization, blood transfusions, and ongoing medical care through our extensive network of partner hospitals.</p>
+      </div>
+      <div class="init-card">
+        <div class="init-icon" style="background:var(--blu-pale)">🩸</div>
+        <h4>Blood Donation Camps</h4>
+        <p>Organizing regular blood donation drives in the community, specifically catering to the critical needs of thalassemic patients.</p>
+      </div>
+      <div class="init-card">
+        <div class="init-icon" style="background:#EEF8EE">📋</div>
+        <h4>Screening Camps</h4>
+        <p>Conducting medical and carrier-screening camps to identify thalassemia early and provide timely counseling and guidance.</p>
+      </div>
+      <div class="init-card">
+        <div class="init-icon" style="background:var(--org-pale)">🎓</div>
+        <h4>Career Guidance</h4>
+        <p>Providing career and matrimonial counseling to ensure patients can build fulfilling, independent, and purposeful lives.</p>
+      </div>
+      <div class="init-card">
+        <div class="init-icon" style="background:var(--blu-pale)">📢</div>
+        <h4>Awareness Campaigns</h4>
+        <p>Running awareness programs through lectures, pamphlets, books, webinars, and electronic media to educate the public.</p>
+      </div>
+      <div class="init-card">
+        <div class="init-icon" style="background:#FFF0F8">💬</div>
+        <h4>Counseling Centers</h4>
+        <p>Providing emotional, social, and practical support through regular counseling sessions for patients and their families.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <div>
+      <h2>Join the Alliance. Change a Life.</h2>
+      <p>Whether you are a patient, caregiver, volunteer, or well-wisher — your membership makes Y.T.A stronger.</p>
+    </div>
+    <button class="btn-white" onclick="showPage('membership')">Become a Member · ₹1,000/yr</button>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img class="footer-logo-img" alt="YTA">
+          <span>Youth Thalassemic Alliance</span>
+        </div>
+        <p>Founded in February 2011 in memory of Payal Wadhawa. Serving the thalassemic community of Vashi and across India with dedication, compassion, and love.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('about')">About Us</button>
+        <button onclick="showPage('projects')">Projects</button>
+        <button onclick="showPage('testimonials')">Testimonials</button>
+      </div>
+      <div class="footer-links">
+        <h5>Get Involved</h5>
+        <button onclick="showPage('membership')">Become a Member</button>
+        <button onclick="showPage('volunteer')">Volunteer</button>
+        <button onclick="showPage('contact')">Contact Us</button>
+        <button onclick="showPage('contact')">Donate Blood</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Youth Thalassemic Alliance Trust, Vashi, Navi Mumbai</span>
+      <span>Made with <span class="ft-accent">♥</span> for Payal</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════ PAGE: ABOUT ═══════════════ -->
+<div id="page-about" class="page">
+  <div class="page-hero" style="background:linear-gradient(135deg,#0D1B2A 0%,#1B6BB5 100%)">
+    <div class="section-eyebrow" style="color:var(--org2)">Our Story</div>
+    <h1>About Youth Thalassemic Alliance</h1>
+    <p>Founded in 2011 with a dream, a purpose, and a promise to Payal — that thalassemia would no longer stand in the way of a fulfilling life.</p>
+  </div>
+
+  <div class="inner" style="padding-bottom:40px">
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow">Our Origin</div>
+        <h2 class="section-h">A Dream Turned Into a Movement</h2>
+        <p style="font-size:15px;color:var(--mid);line-height:1.8;margin-bottom:14px">Youth Thalassemic Alliance (Y.T.A) was formed in the memory of Miss Payal Wadhawa, our dear friend and sister of Miss Sangeeta Wadhawa, Founder of Y.T.A, in February 2011.</p>
+        <div class="blockquote">"She always believed that everyone is equal and each one of us should get the equal opportunity to grow, prove their capability, face the world with up-coming challenges, and also give back to the society as a responsible citizen."</div>
+        <p style="font-size:15px;color:var(--mid);line-height:1.8">Y.T.A was formed to bring Payal's dream into reality — a world where thalassemic patients are empowered, supported, and never alone.</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--dark);margin:32px 0 4px">Our Motto</h3>
+        <ul class="motto-list">
+          <li>Assist thalassaemic patients in securing medical treatment, hospitalization, and blood transfusions.</li>
+          <li>Monitor closely the medication, growth and thalassemia management for registered patients.</li>
+          <li>Conduct blood donation camps in general and for thalassaemia patients in particular.</li>
+          <li>Organize and assist in screening and medical camps for thalassaemia patients.</li>
+          <li>Provide regular counseling and guidance centers for thalassaemia patients.</li>
+          <li>Organize social events and build community for thalassaemia patients.</li>
+          <li>Create awareness through lectures, pamphlets, books, and electronic media.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="about-card">
+          <div class="fff-big">F · F · F</div>
+          <div class="fff-tag">Face &nbsp;·&nbsp; Fight &nbsp;·&nbsp; Finish</div>
+          <p><strong>Face:</strong> Face the disorder with confidence<br><br><strong>Fight:</strong> As a strong fight — "Fearless"<br><br><strong>Finish:</strong> Finish thalassemia from this world by "No More Thalassemic Birth"</p>
+        </div>
+        <div class="about-mem-card">
+          <h3>In Memory of Payal Wadhawa</h3>
+          <p>Every initiative, every camp, every life we touch is dedicated to her spirit and her belief in equality, opportunity, and a better world for all. Her dream lives on through every patient we serve.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trustees-section">
+    <div class="section-eyebrow">Leadership</div>
+    <div class="section-h">Our Trustees &amp; Core Team</div>
+    <p class="section-p">Dedicated individuals who give their time, heart, and expertise to carry forward Payal's dream across India.</p>
+    <div class="trustees-grid">
+      <div class="trustee-card">
+        <div class="t-avatar" style="background:var(--org)">SW</div>
+        <h4>Miss Sangeeta Wadhawa</h4>
+        <div class="t-role">Founder &amp; President</div>
+        <p>The driving force behind Y.T.A. Sangeeta founded the alliance in memory of her sister Payal, committing her life to uplifting thalassemic patients across India.</p>
+      </div>
+      <div class="trustee-card">
+        <div class="t-avatar" style="background:var(--blu)">MT</div>
+        <h4>Medical Trustee</h4>
+        <div class="t-role">Healthcare Coordinator</div>
+        <p>Oversees all medical initiatives including blood donation drives, patient screening camps, and health monitoring programs for registered patients.</p>
+      </div>
+      <div class="trustee-card">
+        <div class="t-avatar" style="background:var(--green)">PS</div>
+        <h4>Mr. Pankaj Sethi</h4>
+        <div class="t-role">Awareness Trustee · Community Outreach Lead</div>
+        <p>Leads awareness campaigns, social events, counseling programs, and community engagement initiatives across India.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-logo"><img class="footer-logo-img" alt="YTA"><span>Youth Thalassemic Alliance</span></div><p>Formed in February 2011 in memory of Payal Wadhawa.</p></div>
+      <div class="footer-links"><h5>Navigate</h5><button onclick="showPage('home')">Home</button><button onclick="showPage('projects')">Projects</button><button onclick="showPage('contact')">Contact</button></div>
+      <div class="footer-links"><h5>Join Us</h5><button onclick="showPage('membership')">Membership</button><button onclick="showPage('volunteer')">Volunteer</button></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Youth Thalassemic Alliance Trust, Vashi</span><span>Made with <span class="ft-accent">♥</span> for Payal</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════ PAGE: PROJECTS ═══════════════ -->
+<div id="page-projects" class="page">
+  <div class="page-hero" style="background:linear-gradient(135deg,#B85C10 0%,var(--org) 100%)">
+    <div class="section-eyebrow" style="color:rgba(255,255,255,0.65)">Our Work</div>
+    <h1>Projects &amp; Activities</h1>
+    <p>From blood donation drives to international webinars — here's how Y.T.A transforms lives every single day.</p>
+  </div>
+
+  <div class="inner">
+    <div class="section-eyebrow">Current Projects</div>
+    <div class="section-h" style="margin-bottom:44px">What We Run</div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-stripe" style="background:var(--org)"></div>
+        <div class="proj-body">
+          <span class="proj-emoji">🩸</span>
+          <h3>Blood Donation Camps</h3>
+          <p>Regular blood donation drives organized in partnership with local hospitals and voluntary organizations. Special camps are dedicated to ensuring thalassemic patients always have access to safe, compatible blood across India.</p>
+        </div>
+        <div class="proj-foot" style="color:var(--org)">Ongoing · Community</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-stripe" style="background:var(--blu)"></div>
+        <div class="proj-body">
+          <span class="proj-emoji">🏥</span>
+          <h3>Medical Screening Camps</h3>
+          <p>Organized medical camps for detecting thalassemia carriers early. Our camps focus on high-risk populations including prospective couples and pregnant women to prevent thalassemic births through timely intervention.</p>
+        </div>
+        <div class="proj-foot" style="color:var(--blu)">Periodic · Medical</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-stripe" style="background:var(--green)"></div>
+        <div class="proj-body">
+          <span class="proj-emoji">💬</span>
+          <h3>Counseling &amp; Guidance Centre</h3>
+          <p>Regular counseling sessions for patients, families, and carriers. We offer emotional support, practical guidance, and resources to help navigate life with thalassemia — empowering patients to live with dignity and confidence.</p>
+        </div>
+        <div class="proj-foot" style="color:var(--green)">Regular · Welfare</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-stripe" style="background:#993356"></div>
+        <div class="proj-body">
+          <span class="proj-emoji">🎉</span>
+          <h3>Social Events &amp; Community</h3>
+          <p>Organizing social gatherings, festivals, and cultural events to build a strong, connected community among thalassemic patients — because belonging, friendship, and joy matter as much as medicine.</p>
+        </div>
+        <div class="proj-foot" style="color:#993356">Periodic · Social</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-stripe" style="background:var(--org)"></div>
+        <div class="proj-body">
+          <span class="proj-emoji">📚</span>
+          <h3>Awareness &amp; Education</h3>
+          <p>Publishing pamphlets, books, and conducting lectures to spread awareness about thalassemia across schools, colleges, and the wider public through electronic, print, and digital media platforms.</p>
+        </div>
+        <div class="proj-foot" style="color:var(--org)">Continuous · Awareness</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-stripe" style="background:var(--blu)"></div>
+        <div class="proj-body">
+          <span class="proj-emoji">🎓</span>
+          <h3>Vocational Training Programme</h3>
+          <p>Running and facilitating vocational education programs specifically for thalassemia patients, empowering them with skills for economic independence, self-reliance, and a fulfilling, productive career.</p>
+        </div>
+        <div class="proj-foot" style="color:var(--blu)">Ongoing · Empowerment</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-stripe" style="background:var(--green)"></div>
+        <div class="proj-body">
+          <span class="proj-emoji">💻</span>
+          <h3>Webinars &amp; Workshops</h3>
+          <p>Y.T.A regularly hosts online and in-person webinars and workshops to keep patients, caregivers, and the medical community informed about the latest in thalassemia treatment, management, and research. Topics range from transfusion protocols and chelation therapy to mental wellness, nutrition, and career development for patients. These sessions bring together leading doctors, counselors, and lived-experience speakers — making expert knowledge accessible to all, regardless of location.</p>
+        </div>
+        <div class="proj-foot" style="color:var(--green)">Ongoing · Education &amp; Outreach</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vision-band">
+    <div class="section-eyebrow" style="color:var(--org2)">Future Vision</div>
+    <div class="section-h" style="color:#fff">Where We're Headed</div>
+    <div class="vision-grid">
+      <div class="vision-item"><span class="v-n">01</span><span>Establishing a dedicated thalassemia hospital for treatment and cutting-edge research.</span></div>
+      <div class="vision-item"><span class="v-n">02</span><span>Creating a comprehensive library of thalassemia resources — books, journals, audio-visual media.</span></div>
+      <div class="vision-item"><span class="v-n">03</span><span>Conducting research into social and economic conditions of people living with thalassemia.</span></div>
+      <div class="vision-item"><span class="v-n">04</span><span>Establishing scholarships, fellowships, and travel grants for researchers and practitioners.</span></div>
+      <div class="vision-item"><span class="v-n">05</span><span>Collaborating with government bodies and NGOs to amplify impact across India and beyond.</span></div>
+      <div class="vision-item"><span class="v-n">06</span><span>Publishing books and educational content for distribution to schools and public libraries.</span></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-logo"><img class="footer-logo-img" alt="YTA"><span>Youth Thalassemic Alliance</span></div><p>Vashi, Navi Mumbai · Est. 2011</p></div>
+      <div class="footer-links"><h5>Navigate</h5><button onclick="showPage('home')">Home</button><button onclick="showPage('about')">About</button><button onclick="showPage('contact')">Contact</button></div>
+      <div class="footer-links"><h5>Join Us</h5><button onclick="showPage('membership')">Membership</button><button onclick="showPage('volunteer')">Volunteer</button></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Youth Thalassemic Alliance Trust, Vashi</span><span>Made with <span class="ft-accent">♥</span> for Payal</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════ PAGE: TESTIMONIALS ═══════════════ -->
+<div id="page-testimonials" class="page">
+  <div class="page-hero" style="background:linear-gradient(135deg,var(--dark) 0%,#1A3A5C 100%)">
+    <div class="section-eyebrow" style="color:var(--org2)">Voices of Hope</div>
+    <h1>Stories That Inspire</h1>
+    <p>Real words from patients, families, volunteers, and supporters whose lives have been touched by Y.T.A.</p>
+  </div>
+
+  <div class="inner" style="background:var(--light)">
+    <div class="section-eyebrow">Testimonials</div>
+    <div class="section-h" style="margin-bottom:44px">What Our Community Says</div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-q">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="test-text">Y.T.A has been my backbone for the last 6 years. From securing blood on time to helping me with career guidance — they treat every patient like family. Sangeeta ji's dedication is truly inspiring.</p>
+        <div class="test-author">
+          <div class="t-ava" style="background:var(--org)">RS</div>
+          <div><div class="t-ava-name">Rahul Sharma</div><div class="t-ava-role">Patient, registered since 2018</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-q">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="test-text">The blood donation camp organized by Y.T.A saved my daughter's life. We were in crisis and they mobilized donors within hours. I will never forget that day — true angels in disguise.</p>
+        <div class="test-author">
+          <div class="t-ava" style="background:var(--blu)">PM</div>
+          <div><div class="t-ava-name">Priya Mehta</div><div class="t-ava-role">Mother of a patient</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-q">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="test-text">Volunteering at YTA's awareness camp changed how I see thalassemia. I never realized how common it is — and how much a carrier test before marriage matters. Thank you for educating us.</p>
+        <div class="test-author">
+          <div class="t-ava" style="background:var(--green)">AK</div>
+          <div><div class="t-ava-name">Aditya Kumar</div><div class="t-ava-role">Volunteer, 3 years</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-q">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="test-text">The counseling sessions gave my son confidence he'd never had before. He now speaks openly about his condition and recently got placed in a great company — something he never thought possible.</p>
+        <div class="test-author">
+          <div class="t-ava" style="background:#993356">SJ</div>
+          <div><div class="t-ava-name">Sunita Joshi</div><div class="t-ava-role">Parent &amp; Member</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-q">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="test-text">Getting the thalassemia screening before our wedding was Y.T.A's recommendation. We were both carriers — and their guidance helped us make an informed decision that changed our lives.</p>
+        <div class="test-author">
+          <div class="t-ava" style="background:var(--org)">NK</div>
+          <div><div class="t-ava-name">Neha &amp; Karan</div><div class="t-ava-role">Screening camp attendees</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-q">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="test-text">As a doctor in Vashi, I have partnered with Y.T.A for four years. Their commitment to patient welfare and medical coordination is exemplary. They bridge critical gaps in the healthcare system.</p>
+        <div class="test-author">
+          <div class="t-ava" style="background:var(--blu)">DR</div>
+          <div><div class="t-ava-name">Dr. Ramesh Nair</div><div class="t-ava-role">Partner Physician</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="impact-row">
+    <div class="section-eyebrow">Our Impact</div>
+    <div class="section-h">By the Numbers</div>
+    <div class="impact-cards">
+      <div class="imp-card"><div class="imp-big" style="color:var(--org)">10,000+</div><div class="imp-lbl">Patients Supported</div></div>
+      <div class="imp-card"><div class="imp-big" style="color:var(--blu)">5,000+</div><div class="imp-lbl">Blood Donors Mobilized</div></div>
+      <div class="imp-card"><div class="imp-big" style="color:var(--green)">50+</div><div class="imp-lbl">Screening Camps Held</div></div>
+      <div class="imp-card"><div class="imp-big" style="color:#993356">200+</div><div class="imp-lbl">Volunteers Engaged</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-logo"><img class="footer-logo-img" alt="YTA"><span>Youth Thalassemic Alliance</span></div><p>Vashi, Navi Mumbai · Est. 2011</p></div>
+      <div class="footer-links"><h5>Navigate</h5><button onclick="showPage('home')">Home</button><button onclick="showPage('about')">About</button><button onclick="showPage('contact')">Contact</button></div>
+      <div class="footer-links"><h5>Join Us</h5><button onclick="showPage('membership')">Membership</button><button onclick="showPage('volunteer')">Volunteer</button></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Youth Thalassemic Alliance Trust, Vashi</span><span>Made with <span class="ft-accent">♥</span> for Payal</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════ PAGE: MEMBERSHIP ═══════════════ -->
+<div id="page-membership" class="page">
+  <div class="page-hero" style="background:linear-gradient(135deg,#B85C10 0%,var(--org) 100%)">
+    <div class="section-eyebrow" style="color:rgba(255,255,255,0.65)">Join the Alliance</div>
+    <h1>Become a Member</h1>
+    <p>Stand with us in our mission. Whether you are a patient, caregiver, volunteer, or well-wisher — there is a place for you in the Y.T.A family.</p>
+  </div>
+
+  <div class="mem-layout">
+    <div class="form-wrap">
+      <h2>Membership Application Form</h2>
+      <p class="form-note">Fields marked <span class="req">*</span> are required. Membership fee: <strong>₹1,000 per person, per year.</strong></p>
+      <div class="row2">
+        <div class="fg"><label>First Name <span class="req">*</span></label><input type="text" id="m-fname" placeholder="e.g. Rahul"></div>
+        <div class="fg"><label>Last Name <span class="req">*</span></label><input type="text" id="m-lname" placeholder="e.g. Sharma"></div>
+      </div>
+      <div class="fg"><label>Email Address <span class="req">*</span></label><input type="email" id="m-email" placeholder="your@email.com"></div>
+      <div class="row2">
+        <div class="fg"><label>Mobile Number <span class="req">*</span></label><input type="tel" id="m-mobile" placeholder="+91 98765 43210"></div>
+        <div class="fg"><label>Date of Birth</label><input type="date" id="m-dob"></div>
+      </div>
+      <div class="fg"><label>Address</label><input type="text" id="m-address" placeholder="Street, Area, City"></div>
+      <div class="row2">
+        <div class="fg"><label>Membership Type <span class="req">*</span></label>
+          <select id="m-type">
+            <option value="">Select type</option>
+            <option>Patient Member</option>
+            <option>Caregiver / Family Member</option>
+            <option>Volunteer</option>
+            <option>Donor / Well-wisher</option>
+            <option>Corporate / Institutional</option>
+          </select>
+        </div>
+        <div class="fg"><label>Blood Group</label>
+          <select id="m-blood">
+            <option value="">Select</option>
+            <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+            <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label>How can you contribute / Why do you want to join?</label><textarea id="m-contrib" placeholder="Tell us briefly about yourself..."></textarea></div>
+      <div class="fg"><label>Willing to donate blood? <span class="req">*</span></label>
+        <select id="m-donate">
+          <option value="">Select</option>
+          <option>Yes, regularly</option>
+          <option>Yes, occasionally</option>
+          <option>Not at this time</option>
+        </select>
+      </div>
+      <button class="submit-btn" onclick="submitMem()">Submit Application →</button>
+      <div class="success-box" id="m-success">✅ Thank you for applying! Your membership form has been submitted successfully. Our team will review your application and contact you within 3–5 business days.</div>
+    </div>
+
+    <div>
+      <div class="fee-badge">
+        <div class="fee-num">₹1,000</div>
+        <div class="fee-txt"><strong style="color:#fff">Annual Membership Fee</strong><br>Per person, per year. Patients may be eligible for subsidized membership — contact us to know more.</div>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--dark);margin-bottom:14px">Why Join Y.T.A?</h3>
+      <ul class="benefit-list">
+        <li>Access to medical assistance and blood coordination support</li>
+        <li>Invitations to exclusive community events and social gatherings</li>
+        <li>Free participation in screening and awareness camps</li>
+        <li>Career counseling and vocational guidance opportunities</li>
+        <li>Be part of a growing, caring community of 10,000+ members</li>
+        <li>Regular updates on thalassemia research and resources</li>
+        <li>Certificates of membership and volunteer recognition</li>
+      </ul>
+      <div class="mem-types">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--dark);margin:28px 0 16px">Membership Categories</h3>
+        <div class="mem-type"><div class="mem-type-head"><h4>Patient Member</h4><span class="fee">Subsidized / Free</span></div><p>For thalassemic patients requiring support, monitoring, and community care.</p></div>
+        <div class="mem-type"><div class="mem-type-head"><h4>Caregiver / Family</h4><span class="fee">₹1,000 / year</span></div><p>For family members and caregivers supporting thalassemic patients.</p></div>
+        <div class="mem-type"><div class="mem-type-head"><h4>Volunteer Member</h4><span class="fee">Free</span></div><p>For those who wish to contribute time, skills, and energy to our cause.</p></div>
+        <div class="mem-type"><div class="mem-type-head"><h4>Donor / Well-wisher</h4><span class="fee">₹1,000+ / year</span></div><p>For individuals and corporates who wish to support Y.T.A through donations.</p></div>
+      </div>
+      <div class="info-note">📊 Admin Note: Membership form data is structured for Google Sheets export. Contact the Y.T.A tech team to connect via Google Apps Script webhook for real-time capture.</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-logo"><img class="footer-logo-img" alt="YTA"><span>Youth Thalassemic Alliance</span></div><p>Vashi, Navi Mumbai · Est. 2011</p></div>
+      <div class="footer-links"><h5>Navigate</h5><button onclick="showPage('home')">Home</button><button onclick="showPage('about')">About</button><button onclick="showPage('contact')">Contact</button></div>
+      <div class="footer-links"><h5>Links</h5><button onclick="showPage('volunteer')">Volunteer</button><button onclick="showPage('contact')">Donate Blood</button></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Youth Thalassemic Alliance Trust, Vashi</span><span>Made with <span class="ft-accent">♥</span> for Payal</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════ PAGE: VOLUNTEER ═══════════════ -->
+<div id="page-volunteer" class="page">
+  <div class="page-hero" style="background:linear-gradient(135deg,#1B4332 0%,var(--green) 100%)">
+    <div class="section-eyebrow" style="color:rgba(255,255,255,0.65)">Give Your Time</div>
+    <h1>Volunteer with Y.T.A</h1>
+    <p>No fee. No barriers. Just your time, your heart, and your willingness to make a difference in the lives of thalassemic patients across India.</p>
+  </div>
+
+  <div class="vol-layout">
+    <div class="form-wrap">
+      <h2>Volunteer Registration Form</h2>
+      <p class="form-note">Registration is completely <strong style="color:var(--green)">free of charge</strong>. Fill in the form and our volunteer coordinator will reach out within 3–5 business days.</p>
+      <div class="row2">
+        <div class="fg"><label>First Name <span class="req">*</span></label><input type="text" id="v-fname" placeholder="e.g. Rahul"></div>
+        <div class="fg"><label>Last Name <span class="req">*</span></label><input type="text" id="v-lname" placeholder="e.g. Sharma"></div>
+      </div>
+      <div class="fg"><label>Email Address <span class="req">*</span></label><input type="email" id="v-email" placeholder="your@email.com"></div>
+      <div class="row2">
+        <div class="fg"><label>Mobile Number <span class="req">*</span></label><input type="tel" id="v-mobile" placeholder="+91 98765 43210"></div>
+        <div class="fg"><label>Date of Birth</label><input type="date" id="v-dob"></div>
+      </div>
+      <div class="fg"><label>Address / City</label><input type="text" id="v-address" placeholder="Area, City, State"></div>
+      <div class="row2">
+        <div class="fg"><label>Occupation / Profession</label><input type="text" id="v-occ" placeholder="e.g. Student, Doctor"></div>
+        <div class="fg"><label>Blood Group</label>
+          <select id="v-blood">
+            <option value="">Select</option>
+            <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+            <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label>Area of Interest <span class="req">*</span></label>
+        <select id="v-area">
+          <option value="">Select primary area</option>
+          <option>Blood Donation &amp; Coordination</option>
+          <option>Awareness Campaigns &amp; Outreach</option>
+          <option>Counseling &amp; Patient Support</option>
+          <option>Event Management &amp; Logistics</option>
+          <option>Digital Media &amp; Content Creation</option>
+          <option>Medical / Healthcare Support</option>
+          <option>Administrative &amp; Office Support</option>
+          <option>Fundraising &amp; Donor Relations</option>
+          <option>Any Area — Open to All</option>
+        </select>
+      </div>
+      <div class="row2">
+        <div class="fg"><label>Availability</label>
+          <select id="v-avail">
+            <option value="">Select</option>
+            <option>Weekdays only</option>
+            <option>Weekends only</option>
+            <option>Weekdays &amp; Weekends</option>
+            <option>Flexible / On-call for events</option>
+          </select>
+        </div>
+        <div class="fg"><label>Willing to donate blood?</label>
+          <select id="v-donate">
+            <option value="">Select</option>
+            <option>Yes, regularly</option>
+            <option>Yes, occasionally</option>
+            <option>Not at this time</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label>About yourself &amp; why you want to volunteer</label><textarea id="v-why" placeholder="Share any relevant experience or your reason for wanting to volunteer..."></textarea></div>
+      <button class="submit-btn" style="background:var(--green)" onmouseover="this.style.background='#40916C'" onmouseout="this.style.background='var(--green)'" onclick="submitVol()">Register as Volunteer →</button>
+      <div class="success-box" id="v-success">✅ Thank you for registering! We're thrilled to have you on board. Our volunteer coordinator will reach out within 3–5 business days.</div>
+    </div>
+
+    <div>
+      <div class="vol-free-badge">🌱 Volunteering with Y.T.A is <strong>completely free</strong>. We welcome students, professionals, homemakers, retirees — anyone with a generous heart and a willingness to serve.</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--dark);margin-bottom:14px">Why Volunteer with Y.T.A?</h3>
+      <ul class="benefit-list">
+        <li>Make a direct, visible impact in the lives of thalassemic patients</li>
+        <li>Gain hands-on experience in healthcare outreach and community work</li>
+        <li>Work alongside experienced trustees, doctors, and counselors</li>
+        <li>Access exclusive webinars, workshops, and training sessions</li>
+        <li>Receive official volunteer certificates recognized by Y.T.A</li>
+        <li>Be part of a warm, purpose-driven community of 200+ volunteers</li>
+        <li>Flexible commitment — contribute on your own schedule</li>
+      </ul>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--dark);margin:28px 0 16px">Volunteer Roles Available</h3>
+      <div class="vol-role-card"><h4>🩸 Blood Camp Volunteer</h4><p>Help organize and run blood donation drives — managing registrations, donor coordination, and logistics on camp days.</p></div>
+      <div class="vol-role-card"><h4>📢 Awareness Ambassador</h4><p>Spread thalassemia awareness in schools, colleges, RWAs, and social media. Ideal for students and communicators.</p></div>
+      <div class="vol-role-card"><h4>💬 Patient Support Volunteer</h4><p>Assist patients at events, counseling sessions, and hospital visits. Empathy and patience are your key skills here.</p></div>
+      <div class="vol-role-card"><h4>💻 Digital &amp; Media Volunteer</h4><p>Create content, manage social media, design posters, or help with website and communication needs.</p></div>
+      <div class="info-note">📊 Admin Note: Volunteer data is structured for Google Sheets export via Google Apps Script webhook.</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-logo"><img class="footer-logo-img" alt="YTA"><span>Youth Thalassemic Alliance</span></div><p>Vashi, Navi Mumbai · Est. 2011</p></div>
+      <div class="footer-links"><h5>Navigate</h5><button onclick="showPage('home')">Home</button><button onclick="showPage('about')">About</button><button onclick="showPage('projects')">Projects</button></div>
+      <div class="footer-links"><h5>Join Us</h5><button onclick="showPage('membership')">Membership</button><button onclick="showPage('contact')">Contact</button></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Youth Thalassemic Alliance Trust, Vashi</span><span>Made with <span class="ft-accent">♥</span> for Payal</span></div>
+  </footer>
+</div>
+
+<!-- ═══════════════ PAGE: CONTACT ═══════════════ -->
+<div id="page-contact" class="page">
+  <div class="page-hero" style="background:linear-gradient(135deg,#0D1B2A 0%,#1B6BB5 100%)">
+    <div class="section-eyebrow" style="color:rgba(255,255,255,0.6)">Reach Out</div>
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you. Whether you need support, want to volunteer, or simply want to learn more — our door is always open.</p>
+  </div>
+
+  <div class="contact-layout">
+    <div>
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <div class="row2">
+          <div class="fg"><label>Your Name</label><input type="text" placeholder="Full name"></div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+        </div>
+        <div class="fg"><label>Subject</label>
+          <select>
+            <option>General Enquiry</option>
+            <option>Medical Support / Patient Query</option>
+            <option>Blood Donation</option>
+            <option>Volunteer / Join Us</option>
+            <option>Donate</option>
+            <option>Media / Press</option>
+          </select>
+        </div>
+        <div class="fg"><label>Message</label><textarea placeholder="Write your message here..." style="min-height:130px"></textarea></div>
+        <button class="submit-btn" onclick="alert('Message sent! We will get back to you shortly.')">Send Message →</button>
+      </div>
+    </div>
+
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <div class="info-block">
+        <div class="info-lbl">Organisation</div>
+        <p><strong>Youth Thalassemic Alliance Trust</strong><br>Vashi, Navi Mumbai, Maharashtra, India</p>
+      </div>
+      <div class="info-block">
+        <div class="info-lbl">Address</div>
+        <p>Vashi, Navi Mumbai<br>Maharashtra – 400703</p>
+      </div>
+      <div class="info-block">
+        <div class="info-lbl">Phone</div>
+        <p>📞 +91-97680 04545<br>📞 +91-99306 32928</p>
+      </div>
+      <div class="info-block">
+        <div class="info-lbl">Email</div>
+        <p>📧 yta.mum@gmail.com<br>📧 youththalassemicalliancetv@gmail.com</p>
+      </div>
+      <div class="info-block">
+        <div class="info-lbl">Office Hours</div>
+        <p>Monday – Saturday<br>10:00 AM – 6:00 PM</p>
+      </div>
+      <div class="emergency-block">
+        <div class="e-label">🚨 For Emergency Blood Needs</div>
+        <p>Call our helpline <strong>+91-99306 32928</strong> immediately.<br>We coordinate 24/7 for urgent cases.</p>
+      </div>
+      <div class="map-box">
+        <div class="map-icon">📍</div>
+        <div style="text-align:center"><strong>Vashi, Navi Mumbai</strong><br><span style="font-size:12px">Google Maps integration to be added</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-logo"><img class="footer-logo-img" alt="YTA"><span>Youth Thalassemic Alliance</span></div><p>Vashi, Navi Mumbai · Est. 2011</p></div>
+      <div class="footer-links"><h5>Navigate</h5><button onclick="showPage('home')">Home</button><button onclick="showPage('about')">About</button><button onclick="showPage('projects')">Projects</button></div>
+      <div class="footer-links"><h5>Join Us</h5><button onclick="showPage('membership')">Membership</button><button onclick="showPage('volunteer')">Volunteer</button></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Youth Thalassemic Alliance Trust, Vashi</span><span>Made with <span class="ft-accent">♥</span> for Payal</span></div>
+  </footer>
+</div>
+
+<script>
+// ── LOGO: inject base64 into all img tags ──
+window.addEventListener('DOMContentLoaded', function(){
+  document.getElementById('nav-logo-img').src = LOGO_SRC;
+  document.querySelectorAll('.footer-logo-img').forEach(function(img){
+    img.src = LOGO_SRC;
+    img.style.height = '44px';
+    img.style.filter = 'brightness(0) invert(1)';
+    img.style.opacity = '0.85';
+  });
+});
+
+// ── NAVIGATION: works when file is downloaded locally ──
+function showPage(id){
+  // Hide all pages
+  var pages = document.querySelectorAll('.page');
+  for(var i=0;i<pages.length;i++){
+    pages[i].classList.remove('active');
+    pages[i].style.display = 'none';
+  }
+  // Deactivate all nav buttons
+  var btns = document.querySelectorAll('.nav-links button:not(.nav-cta)');
+  for(var i=0;i<btns.length;i++) btns[i].classList.remove('active');
+
+  // Show selected page
+  var target = document.getElementById('page-'+id);
+  if(target){
+    target.style.display = 'block';
+    target.classList.add('active');
+  }
+  // Activate nav button
+  var nb = document.getElementById('nb-'+id);
+  if(nb) nb.classList.add('active');
+
+  // Scroll to top
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── INIT: make all pages hidden except home, then show home ──
+window.addEventListener('DOMContentLoaded', function(){
+  var pages = document.querySelectorAll('.page');
+  for(var i=0;i<pages.length;i++){
+    pages[i].style.display = 'none';
+    pages[i].classList.remove('active');
+  }
+  showPage('home');
+});
+
+// ── MEMBERSHIP FORM ──
+function submitMem(){
+  var fname = document.getElementById('m-fname').value.trim();
+  var lname = document.getElementById('m-lname').value.trim();
+  var email = document.getElementById('m-email').value.trim();
+  var mobile = document.getElementById('m-mobile').value.trim();
+  var mtype = document.getElementById('m-type').value;
+  var donate = document.getElementById('m-donate').value;
+  if(!fname||!lname||!email||!mobile||!mtype||!donate){
+    alert('Please fill in all required fields marked with *');
+    return;
+  }
+  var entry = {
+    timestamp: new Date().toLocaleString('en-IN'),
+    firstName: fname, lastName: lname, email: email, mobile: mobile,
+    dob: document.getElementById('m-dob').value,
+    address: document.getElementById('m-address').value,
+    membershipType: mtype,
+    bloodGroup: document.getElementById('m-blood').value,
+    contribution: document.getElementById('m-contrib').value,
+    willDonateBlood: donate
+  };
+  console.log('YTA Membership:', JSON.stringify(entry));
+  document.getElementById('m-success').style.display = 'block';
+  var btn = document.querySelector('#page-membership .submit-btn');
+  btn.disabled = true; btn.style.opacity = '0.5';
+}
+
+// ── VOLUNTEER FORM ──
+function submitVol(){
+  var fname = document.getElementById('v-fname').value.trim();
+  var lname = document.getElementById('v-lname').value.trim();
+  var email = document.getElementById('v-email').value.trim();
+  var mobile = document.getElementById('v-mobile').value.trim();
+  var area = document.getElementById('v-area').value;
+  if(!fname||!lname||!email||!mobile||!area){
+    alert('Please fill in all required fields marked with *');
+    return;
+  }
+  var entry = {
+    timestamp: new Date().toLocaleString('en-IN'),
+    firstName: fname, lastName: lname, email: email, mobile: mobile,
+    dob: document.getElementById('v-dob').value,
+    address: document.getElementById('v-address').value,
+    occupation: document.getElementById('v-occ').value,
+    bloodGroup: document.getElementById('v-blood').value,
+    areaOfInterest: area,
+    availability: document.getElementById('v-avail').value,
+    willDonateBlood: document.getElementById('v-donate').value,
+    motivation: document.getElementById('v-why').value
+  };
+  console.log('YTA Volunteer:', JSON.stringify(entry));
+  document.getElementById('v-success').style.display = 'block';
+  var btn = document.querySelector('#page-volunteer .submit-btn');
+  btn.disabled = true; btn.style.opacity = '0.5';
+}
+</script>
+</body>
+</html>
